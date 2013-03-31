@@ -17,18 +17,24 @@ grails.project.dependency.resolution = {
 	}
 
 	dependencies {
-		compile('org.springframework.security:spring-security-core:3.1.0.RELEASE') {
-//			transitive = false
+		compile('org.springframework.security:spring-security-core:3.1.3.RELEASE') {
+			//			transitive = false
 			excludes 'spring-expression', 'spring-core', 'spring-context', 'spring-tx',
-			         'spring-aop', 'spring-jdbc', 'spring-web', 'spring-test', 'aspectjrt',
-			         'aspectjweaver', 'cglib-nodep', 'ehcache', 'commons-collections',
-			         'hsqldb', 'jsr250-api', 'log4j', 'junit', 'mockito-core', 'jmock-junit4'
+					'spring-aop', 'spring-jdbc', 'spring-web', 'spring-test', 'aspectjrt',
+					'aspectjweaver', 'cglib-nodep', 'ehcache', 'commons-collections',
+					'hsqldb', 'jsr250-api', 'log4j', 'junit', 'mockito-core', 'jmock-junit4'
 		}
 
-		compile('org.springframework.security:spring-security-web:3.1.0.RELEASE') {
-//			transitive = false
+		compile('org.springframework.security:spring-security-web:3.1.3.RELEASE') {
+			//			transitive = false
 			excludes 'spring-security-core', 'spring-web', 'spring-jdbc', 'spring-test',
-			         'commons-codec', 'hsqldb', 'servlet-api', 'junit', 'mockito-core', 'jmock-junit4'
+					'commons-codec', 'hsqldb', 'servlet-api', 'junit', 'mockito-core', 'jmock-junit4'
+		}
+
+		compile('org.springframework.security:spring-security-config:3.1.3.RELEASE') {
+			//			transitive = false
+			excludes 'spring-security-core', 'spring-web', 'spring-jdbc', 'spring-test',
+					'commons-codec', 'hsqldb', 'servlet-api', 'junit', 'mockito-core', 'jmock-junit4'
 		}
 	}
 

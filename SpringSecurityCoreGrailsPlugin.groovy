@@ -113,7 +113,7 @@ import org.springframework.security.web.util.AntPathRequestMatcher
  */
 class SpringSecurityCoreGrailsPlugin {
 
-	String version = '1.2.8.0'
+	String version = '1.2.8.4'
 	String grailsVersion = '1.2.2 > *'
 	List observe = ['controllers']
 	List loadAfter = ['controllers', 'services', 'hibernate']
@@ -284,6 +284,7 @@ class SpringSecurityCoreGrailsPlugin {
 			errorPage = conf.adh.errorPage == 'null' ? null : conf.adh.errorPage // '/login/denied' or 403
 			ajaxErrorPage = conf.adh.ajaxErrorPage
 			portResolver = ref('portResolver')
+			requestCache = ref('requestCache')
 			authenticationTrustResolver = ref('authenticationTrustResolver')
 		}
 
@@ -580,7 +581,7 @@ to default to 'Annotation'; setting value to 'Annotation'
 					// explicit filter names
 					filters = value.toString().split(',').collect { name -> ctx.getBean(name) }
 				}
-				filterChainMap[key] = filters
+				filterChainMap[new AntPathRequestMatcher(key)] = filters
 			}
 		}
 		else {
